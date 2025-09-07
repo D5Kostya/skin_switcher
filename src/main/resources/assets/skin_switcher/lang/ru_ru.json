@@ -1,0 +1,60 @@
+{
+  "skin_switcher" : "skin_switcher",
+
+  "skin_switcher.warning.test_mode": "Внимание! У вас запущена тестовая версия!\nГлобальные настройки недоступны!!!",
+
+  "skin_switcher.config.main": "Основные настройки",
+  "skin_switcher.config.main.data": "Данные",
+  "skin_switcher.config.main.data.use_global": "Использовать общую папку для всех клиентов",
+  "skin_switcher.config.main.data.path": "Папка (Windows)",
+  "skin_switcher.config.main.data.path.unix": "Папка (UNIX)",
+  "skin_switcher.config.main.data.move": "Переместить данные из сборки в общую папку",
+  "skin_switcher.config.main.data.update_config": "Обновить конфиги",
+
+  "skin_switcher.config.menu": "Настройки меню",
+  "skin_switcher.config.menu.change_default_ui": "Изменить меню настройки персонажа",
+  "skin_switcher.config.menu.alinlib": "Использовать стиль AlinLib",
+  "skin_switcher.config.menu.two_one_slot": "Разделить линию выбора на три",
+  "skin_switcher.config.menu.title": "Кнопка в главном меню",
+  "skin_switcher.config.menu.title.left": "Кнопка в главном меню слева",
+  "skin_switcher.config.menu.pause": "Кнопка в меню паузы",
+  "skin_switcher.config.menu.pause.left": "Кнопка в меню паузы слева",
+
+  "skin_switcher.create": "Создание скина",
+  "skin_switcher.create.file_name": "Название файла",
+  "skin_switcher.create.file_name.description": "Формат названия: [a-z0-9-_]",
+  "skin_switcher.create.execute": "Создать",
+
+  "skin_switcher.main": "Это вы, %s!",
+  "skin_switcher.main.select" : "Выбрать скин",
+  "skin_switcher.main.options" : "Настройки игрока",
+  "skin_switcher.main.configs" : "Настройки мода",
+
+  "skin_switcher.select": "Ваши скины",
+  "skin_switcher.select.edit": "Редактировать",
+  "skin_switcher.select.create": "Создать скин",
+  "skin_switcher.select.cape": "Ваши плащи",
+  "skin_switcher.select.cape.inactive": "Нет плаща",
+
+  "skin_switcher.edit": "Редактирование скина",
+  "skin_switcher.edit.name": "Назвние пресета",
+  "skin_switcher.edit.url": "Ссылка/Путь до файла",
+  "skin_switcher.edit.file_select": "Выбрать файл",
+  "skin_switcher.edit.type": "Тип",
+  "skin_switcher.edit.type.nickname": "Никнейм",
+  "skin_switcher.edit.model": "Модель",
+  "skin_switcher.edit.select_cape": "Выбрать плащ",
+
+  "skin_switcher.edit.file_selector": "Выберете файл скина",
+  "skin_switcher.edit.file_selector.description": "Файл скина (.png)",
+  "skin_switcher.edit.file_not_exist": "Файл не существует!",
+
+  "skin_switcher.edit.remove": "Удалить скин",
+  "skin_switcher.edit.remove.title": "Вы уверены что хотите удалить скин?",
+  "skin_switcher.edit.remove.description": "Данные настройки скина будут утеряны и их никак не вернуть!",
+
+  "skin_switcher.upload.done": "Ваш скин %s был успешно загружен!",
+  "skin_switcher.upload.multiplayer": "Чтобы игроки этого сервера увидела ваш замечательный скин, то вам придется перезайти на сервер!",
+
+  "skin_switcher.open_gui": "Скины"
+}

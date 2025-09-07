@@ -1,26 +1,26 @@
 {
   "schemaVersion": 1,
-  "id": "clovskins",
+  "id": "skin_switcher",
   "version": "${version}",
-  "name": "ClovSkins",
-  "description": "Мод, который позволяет менять скин в самой игре",
-  "authors": ["Im_Kel"],
+  "name": "Skin switcher",
+  "description": "Change your skin in game!",
+  "authors": ["d5kostya"],
   "contact": {
-    "homepage": "https://modrinth.com/mod/clovskins",
-    "issues": "https://github.com/kel-cu/clovskins/issues",
-    "sources": "https://github.com/kel-cu/clovskins",
-    "email": "me@kelcuprum.ru"
+    "homepage": "https://modrinth.com/mod/skin_switcher",
+    "issues": "https://github.com/D5Kostya/skin_switcher/issues",
+    "sources": "https://github.com/D5Kostya/skin_switcher",
+    "email": "d5kostya@yandex.ru"
   },
   "license": "PolyForm Strict License 1.0.0",
-  "icon": "assets/clovskins/icon.png",
-  "accessWidener": "clovskins.accesswidener",
+  "icon": "assets/skin_switcher/icon.png",
+  "accessWidener": "skin_switcher.accesswidener",
   "environment": "client",
   "entrypoints": {
     "client": [
-      "ru.kelcuprum.clovskins.client.ClovSkins"
+      "ru.d5kostya.skinswitcher.client.skin_switcher"
     ],
     "modmenu": [
-      "ru.kelcuprum.clovskins.client.gui.ModMenuIntegration"
+      "ru.d5kostya.skinswitcher.client.gui.ModMenuIntegration"
     ]
   },
   "depends": {
@@ -30,13 +30,13 @@
     "minecraft": "${minecraft_dependency}"
   },
   "mixins": [
-    "clovskins.mixin.json"
+    "skin_switcher.mixin.json"
   ],
   "custom": {
     "modmenu": {
       "links": {
-        "modmenu.modrinth": "https://modrinth.com/mod/clovskins",
-        "modmenu.donate": "https://kelcuprum.ru/r/don"
+        "modmenu.modrinth": "https://modrinth.com/mod/skin_switcher",
+        "modmenu.donate": "https://t.me/D5Kostya"
       }
     }
   }

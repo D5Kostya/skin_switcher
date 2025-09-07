@@ -1,0 +1,36 @@
+{
+  "skin_switcher.create": "\uDB80\uDC15 Создание скина",
+  "skin_switcher.create.file_name.description": "Формат названия: [a-z0-9-_]",
+  "skin_switcher.create.execute": "\uDB80\uDC15 Создать",
+
+  "skin_switcher.main.select" : "\uDB80\uDC0A Выбрать скин",
+  "skin_switcher.main.configs" : "\uDB80\uDC03 Настройки мода",
+
+  "skin_switcher.select": "\uDB80\uDC0A Ваши скины",
+  "skin_switcher.select.edit": "\uDB80\uDC16 Редактировать",
+  "skin_switcher.select.create": "\uDB80\uDC05 Добавить скин",
+  "skin_switcher.select.cape": "\uDB80\uDC2A Ваши плащи",
+  "skin_switcher.select.cape.inactive": "Нет плаща",
+
+  "skin_switcher.edit": "\uDB80\uDC16 Редактирование скина",
+  "skin_switcher.edit.name": "Назвние пресета",
+  "skin_switcher.edit.url": "\uDB80\uDC30 Ссылка/Путь до файла",
+  "skin_switcher.edit.file_select": "Выбрать файл",
+  "skin_switcher.edit.type": "\uDB80\uDC12 Тип",
+  "skin_switcher.edit.type.nickname": "Никнейм",
+  "skin_switcher.edit.model": "\uDB80\uDC2B Модель",
+  "skin_switcher.edit.select_cape": "\uDB80\uDC2A Выбрать плащ",
+
+  "skin_switcher.edit.file_selector": "Выберете файл скина",
+  "skin_switcher.edit.file_selector.description": "Файл скина (.png)",
+  "skin_switcher.edit.file_not_exist": "\uDB80\uDC24 Файл не существует!",
+
+  "skin_switcher.edit.remove": "\uDB80\uDC17 Удалить скин",
+  "skin_switcher.edit.remove.title": "Вы уверены что хотите удалить скин?",
+  "skin_switcher.edit.remove.description": "Данные настройки скина будут утеряны и их никак не вернуть!",
+
+  "skin_switcher.upload.done": "\uDB80\uDC23 Ваш скин %s был успешно загружен!",
+  "skin_switcher.upload.multiplayer": "\uDB80\uDC23 Чтобы игроки этого сервера увидели ваш замечательный скин, вам придется перезайти на сервер!",
+
+  "skin_switcher.open_gui": "\uDB80\uDC0A Скины"
+}

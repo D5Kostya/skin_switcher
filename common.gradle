@@ -45,7 +45,7 @@ loom {
         runDir '../../run'
         vmArgs '-Dmixin.debug.export=true'
     }
-    accessWidenerPath = file("../../src/main/resources/clovskins.accesswidener")
+    accessWidenerPath = file("../../src/main/resources/skin_switcher.accesswidener")
     if (mod_brand == 'forge') {
         forge {
             convertAccessWideners = true

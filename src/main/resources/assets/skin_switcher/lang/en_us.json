@@ -1,0 +1,60 @@
+{
+  "skin_switcher" : "Skin swither",
+
+  "skin_switcher.warning.test_mode": "Attention! You are running a test version!\nGlobal settings are not available!!!",
+
+  "skin_switcher.config.main": "Main configs",
+  "skin_switcher.config.main.data": "Data",
+  "skin_switcher.config.main.data.use_global": "Use a shared folder for all instances",
+  "skin_switcher.config.main.data.path": "Folder (Windows)",
+  "skin_switcher.config.main.data.path.unix": "Folder (UNIX)",
+  "skin_switcher.config.main.data.move": "Move data from an instance to a shared folder",
+  "skin_switcher.config.main.data.update_config": "Update configs",
+
+  "skin_switcher.config.menu": "Menu settings",
+  "skin_switcher.config.menu.change_default_ui": "Change the character customization menu",
+  "skin_switcher.config.menu.alinlib": "Use AlinLib style",
+  "skin_switcher.config.menu.two_one_slot": "Split the choice line into 3",
+  "skin_switcher.config.menu.title": "Button in the main menu",
+  "skin_switcher.config.menu.title.left": "Button in main menu in left",
+  "skin_switcher.config.menu.pause": "Button in the pause menu",
+  "skin_switcher.config.menu.pause.left": "Button in pause menu in left",
+
+  "skin_switcher.create": "Create skin",
+  "skin_switcher.create.file_name": "File name",
+  "skin_switcher.create.file_name.description": "Name format: [a-z0-9-_]",
+  "skin_switcher.create.execute": "Create",
+
+  "skin_switcher.main": "It's you, %s!",
+  "skin_switcher.main.select" : "Select skin",
+  "skin_switcher.main.options" : "Player options",
+  "skin_switcher.main.configs" : "Mod settings",
+
+  "skin_switcher.select": "Your skins",
+  "skin_switcher.select.edit": "Edit",
+  "skin_switcher.select.create": "Create skin",
+  "skin_switcher.select.cape": "Your capes",
+  "skin_switcher.select.cape.inactive": "No cape",
+
+  "skin_switcher.edit": "Edit skin",
+  "skin_switcher.edit.name": "Preset name",
+  "skin_switcher.edit.url": "URL/File path",
+  "skin_switcher.edit.file_select": "Select file",
+  "skin_switcher.edit.type": "Type",
+  "skin_switcher.edit.type.nickname": "Nickname",
+  "skin_switcher.edit.model": "Model",
+  "skin_switcher.edit.select_cape": "Select cape",
+
+  "skin_switcher.edit.file_selector": "Select skin file",
+  "skin_switcher.edit.file_selector.description": "Skin file (.png)",
+  "skin_switcher.edit.file_not_exist": "File doesn't exist!",
+
+  "skin_switcher.edit.remove": "Remove skin",
+  "skin_switcher.edit.remove.title": "Are you sure you want to remove that skin?",
+  "skin_switcher.edit.remove.description": "Skin settings will be lost and there is no way to get them back!",
+
+  "skin_switcher.upload.done": "Your skin %s has been successfully uploaded!",
+  "skin_switcher.upload.multiplayer": "In order for players on this server to see your wonderful skin, you'll have to rejoin the server!",
+
+  "skin_switcher.open_gui": "Skins"
+}

@@ -1,0 +1,32 @@
+{
+  "skin_switcher.create": "\uDB80\uDC15 Create skin",
+  "skin_switcher.create.execute": "\uDB80\uDC15 Create",
+
+  "skin_switcher.main.select" : "\uDB80\uDC0A Select skin",
+  "skin_switcher.main.configs" : "\uDB80\uDC03 Mod settings",
+
+  "skin_switcher.select": "\uDB80\uDC0A Your skins",
+  "skin_switcher.select.edit": "\uDB80\uDC16 Edit",
+  "skin_switcher.select.create": "\uDB80\uDC05 Create preset",
+  "skin_switcher.select.cape": "\uDB80\uDC2A Your capes",
+  "skin_switcher.select.cape.inactive": "No cape",
+
+  "skin_switcher.edit": "\uDB80\uDC16 Edit skin",
+  "skin_switcher.edit.name": "Preset name",
+  "skin_switcher.edit.url": "\uDB80\uDC30 URL/File path",
+  "skin_switcher.edit.file_select": "Select file",
+  "skin_switcher.edit.type": "\uDB80\uDC12 Type",
+  "skin_switcher.edit.type.nickname": "Nickname",
+  "skin_switcher.edit.model": "\uDB80\uDC2B Model",
+  "skin_switcher.edit.select_cape": "\uDB80\uDC2A Select cape",
+
+  "skin_switcher.edit.file_selector.description": "Skin file (.png)",
+  "skin_switcher.edit.file_not_exist": "\uDB80\uDC24 File doesn't exist!",
+
+  "skin_switcher.edit.remove": "\uDB80\uDC17 Remove skin",
+
+  "skin_switcher.upload.done": "\uDB80\uDC23 Your skin %s has been successfully uploaded!",
+  "skin_switcher.upload.multiplayer": "\uDB80\uDC23 In order for players on this server to see your wonderful skin, you'll have to rejoin the server!",
+
+  "skin_switcher.open_gui": "\uDB80\uDC0A Skins"
+}
