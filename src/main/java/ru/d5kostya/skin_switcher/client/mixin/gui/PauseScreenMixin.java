@@ -32,10 +32,10 @@ public class PauseScreenMixin extends Screen {
                 int x =  isLeft ? width : 0;
                 int y = this.height / 4 + 72 - 16 + 1;
                 for (AbstractWidget widget : buttons) {
-                    x = isLeft ? Math.min(x, widget.getX() - 45) : Math.max(x, widget.getRight()+45);
+                    x = isLeft ? Math.min(x, widget.getX() - 45) : Math.max(x, widget.getRight()+60);
                     y = Math.max(y, widget.getY());
                 }
-                buttons.add(new PlayerButton(x, y-100, 50));
+                buttons.add(new PlayerButton(x, y-100, 60));
             }
         }
     }

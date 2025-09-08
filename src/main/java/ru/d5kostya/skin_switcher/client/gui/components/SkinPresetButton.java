@@ -28,7 +28,7 @@ public class SkinPresetButton extends AbstractButton {
     public final String key;
 
     public SkinPresetButton(int x, int y, int width, int height, SkinOption skinOption, String key, boolean rotate, boolean autoRotate, boolean followMouse) {
-        super(x, y, width, height, Component.translatable("skin_switcher.select.edit"));
+        super(x, y-10, width, height, Component.translatable("skin_switcher.select.edit"));
         this.size = (height - 50)/2;
         this.rotate = rotate;
         this.skinOption = skinOption;

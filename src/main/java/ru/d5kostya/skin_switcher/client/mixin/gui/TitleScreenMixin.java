@@ -27,11 +27,11 @@ public class TitleScreenMixin extends Screen {
             int y = 0;
             for (GuiEventListener widget : this.children) {
                 if (widget instanceof Button && !(widget instanceof PlainTextButton)) {
-                    x = isLeft ? Math.min(x, ((AbstractWidget) widget).getX() - 55) : Math.max(x, ((AbstractWidget) widget).getRight()+15);
+                    x = isLeft ? Math.min(x, ((AbstractWidget) widget).getX() - 55) : Math.max(x, ((AbstractWidget) widget).getRight()+60);
                     y = Math.max(y, ((AbstractWidget) widget).getY());
                 }
             }
-            addRenderableWidget(new PlayerButton(x, y - 100, 50));
+            addRenderableWidget(new PlayerButton(x, y - 100, 60));
         }
     }
 }

@@ -152,6 +152,7 @@ public class EditSkinPreset extends Screen {
 
     @Override
     public void onClose() {
+
         try {
             if(isDeleted){
                 if(skin_switcher.currentSkin == skinOptionOriginal) {

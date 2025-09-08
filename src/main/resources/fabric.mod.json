@@ -11,7 +11,7 @@
     "sources": "https://github.com/D5Kostya/skin_switcher",
     "email": "d5kostya@yandex.ru"
   },
-  "license": "PolyForm Strict License 1.0.0",
+  "license": "GNU General Public License v3.0 only",
   "icon": "assets/skin_switcher/icon.png",
   "accessWidener": "skin_switcher.accesswidener",
   "environment": "client",
@@ -36,7 +36,7 @@
     "modmenu": {
       "links": {
         "modmenu.modrinth": "https://modrinth.com/mod/skin_switcher",
-        "modmenu.donate": "https://t.me/D5Kostya"
+        "Telegram": "https://t.me/D5Kostya"
       }
     }
   }

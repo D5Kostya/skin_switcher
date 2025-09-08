@@ -53,7 +53,7 @@ public class SelectSkinPreset extends Screen {
         }));
         for (String name : skin_switcher.skinOptions.keySet()) {
             SkinOption skinOption = skin_switcher.skinOptions.get(name);
-            widgets_pages.add(new SkinPresetButton(-widthComponent, 35 + font.lineHeight, widthComponent, heightComponent, skinOption, name, false, true, false));
+            widgets_pages.add(new SkinPresetButton(-widthComponent, 35 + font.lineHeight, widthComponent, heightComponent, skinOption, name, true, true, false));
         }
         addWidgetsToScroller(widgets_pages, scroller_pages);
 
