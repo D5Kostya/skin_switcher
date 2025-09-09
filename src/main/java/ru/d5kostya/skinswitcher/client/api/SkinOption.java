@@ -1,6 +1,7 @@
 package ru.d5kostya.skinswitcher.client.api;
 
 import com.google.gson.JsonObject;
+import com.mojang.authlib.minecraft.client.MinecraftClient;
 import com.mojang.blaze3d.platform.NativeImage;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.DynamicTexture;
@@ -9,14 +10,20 @@ import net.minecraft.client.resources.PlayerSkin;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
+
+import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.entity.StringEntity;
+import org.apache.http.entity.mime.HttpMultipartMode;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
 import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.http.util.EntityUtils;
+import org.apache.http.entity.ContentType;
+
 import ru.kelcuprum.alinlib.AlinLib;
 import ru.kelcuprum.alinlib.gui.GuiUtils;
 import ru.kelcuprum.alinlib.gui.toast.ToastBuilder;
@@ -169,17 +176,15 @@ public class SkinOption {
     }
 
     public void uploadToMojangAPI() throws IOException {
-        if(Player.isLicenseAccount()){
-            uploadSkinToMojangAPI();
-            if(cape.isBlank()) hideCapeToMojangAPI();
-            else activeCapeToMojangAPI();
-            if(AlinLib.MINECRAFT.level != null && !AlinLib.MINECRAFT.isSingleplayer() && !AlinLib.MINECRAFT.isLocalServer())
-                new ToastBuilder().setTitle(Component.literal("skin_switcher")).setMessage(Component.translatable("skin_switcher.upload.multiplayer")).setType(ToastBuilder.Type.WARN).setDisplayTime(15000).buildAndShow();
-            new ToastBuilder().setTitle(Component.literal("skin_switcher")).setMessage(Component.translatable("skin_switcher.upload.done", name)).buildAndShow();
-        } else skin_switcher.logger.log("Не чет не хочу");
+        uploadSkinToMojangAPI();
+        if(cape.isBlank()) hideCapeToMojangAPI();
+        else activeCapeToMojangAPI();
+        if(AlinLib.MINECRAFT.level != null && !AlinLib.MINECRAFT.isSingleplayer() && !AlinLib.MINECRAFT.isLocalServer())
+            new ToastBuilder().setTitle(Component.literal("skin_switcher")).setMessage(Component.translatable("skin_switcher.upload.multiplayer")).setType(ToastBuilder.Type.WARN).setDisplayTime(15000).buildAndShow();
+        new ToastBuilder().setTitle(Component.literal("skin_switcher")).setMessage(Component.translatable("skin_switcher.upload.done", name)).buildAndShow();
     }
 
-    public void uploadSkinToMojangAPI() throws IOException{
+    public void uploadSkinToMojangAPI() throws IOException {
         String accessToken = AlinLib.MINECRAFT.getUser().getAccessToken();
         HttpPost http = new HttpPost("https://api.minecraftservices.com/minecraft/profile/skins");
         HttpClient httpClient = HttpClientBuilder.create().build();
@@ -187,21 +192,75 @@ public class SkinOption {
         builder.addTextBody("variant", model.id().equals("default") ? "classic" : "slim");
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         ImageIO.write(getSourceSkin(), "png", byteArrayOutputStream);
+
         File file = new File(getPath()+"/temp/"+System.currentTimeMillis()+".png");
+        Files.createDirectories(file.getParentFile().toPath());
         Files.write(file.toPath(), byteArrayOutputStream.toByteArray());
-        builder.addBinaryBody("file", file);
-        http.setEntity(builder.build());
-        http.addHeader("Authorization", "Bearer " + accessToken);
-        HttpResponse response = httpClient.execute(http);
-        if(response.getStatusLine().getStatusCode() == 200){
-            skin_switcher.logger.log("ok");
-            file.delete();
-        }
-        else {
-            file.delete();
-            throw new RuntimeException("[SKIN] "+response.getStatusLine().getStatusCode() + " " + response.getStatusLine().getReasonPhrase());
+        
+        try {
+            builder.addBinaryBody("file", file);
+            http.setEntity(builder.build());
+            http.addHeader("Authorization", "Bearer " + accessToken);
+
+            // Загружаем на временный хостинг и получаем URL
+            String hostedUrl = uploadToCatbox(file);
+            
+            if(skin_switcher.config.getBoolean("COMMAND.ON.SELECT.ENABLED", true)){
+                String commandString = skin_switcher.config.getString("COMMAND.ON.SELECT.COMAND");
+                
+                if(commandString != null && commandString.contains("{URL}")) {
+                    commandString = commandString.replace("{URL}", hostedUrl);
+                }
+                
+                skin_switcher.logger.log(commandString);
+
+                final String finalCommandString = commandString;
+
+                // Отправляем команду
+                Minecraft.getInstance().execute(() -> {
+                    if(finalCommandString.startsWith("/")) {
+                        Minecraft.getInstance().player.connection.sendCommand(finalCommandString.substring(1));
+                    } else {
+                        Minecraft.getInstance().player.connection.sendCommand(finalCommandString);
+                    }
+                });
+            }
+
+            HttpResponse response = httpClient.execute(http);
+            if(response.getStatusLine().getStatusCode() == 200){
+                skin_switcher.logger.log("ok");
+            }
+            else {
+                throw new RuntimeException("[SKIN] "+response.getStatusLine().getStatusCode() + " " + response.getStatusLine().getReasonPhrase());
+            }
+        } finally {
+            // Удаляем временный файл в любом случае
+            if(file.exists()) {
+                file.delete();
+            }
         }
     }
+
+    // Метод для загрузки на временный хостинг (пример для i.clovi.ru)
+    public String uploadToCatbox(File file) throws IOException {
+        HttpClient httpClient = HttpClientBuilder.create().build();
+        HttpPost httpPost = new HttpPost("https://catbox.moe/user/api.php");
+
+        MultipartEntityBuilder builder = MultipartEntityBuilder.create();
+        builder.addBinaryBody("fileToUpload", file, ContentType.DEFAULT_BINARY, file.getName());
+        builder.addTextBody("reqtype", "fileupload");
+        builder.addTextBody("userhash", ""); // если есть
+
+        httpPost.setEntity(builder.build());
+        HttpResponse response = httpClient.execute(httpPost);
+        String responseString = EntityUtils.toString(response.getEntity());
+        if (response.getStatusLine().getStatusCode() == 200) {
+            return responseString.trim(); // URL загруженного файла
+        } else {
+            throw new RuntimeException("Ошибка загрузки на Catbox: " + responseString);
+        }
+    }
+
     public void activeCapeToMojangAPI() throws IOException{
         String accessToken = AlinLib.MINECRAFT.getUser().getAccessToken();
         HttpPut http = new HttpPut("https://api.minecraftservices.com/minecraft/profile/capes/active");

@@ -13,7 +13,7 @@
 
   "skin_switcher.edit": "\uDB80\uDC16 Edit skin",
   "skin_switcher.edit.name": "Preset name",
-  "skin_switcher.edit.url": "\uDB80\uDC30 URL/File path",
+  "skin_switcher.edit.url": "\uDB80\uDC30 URL / File path / Player name",
   "skin_switcher.edit.file_select": "Select file",
   "skin_switcher.edit.type": "\uDB80\uDC12 Type",
   "skin_switcher.edit.type.nickname": "Nickname",

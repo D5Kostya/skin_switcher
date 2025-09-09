@@ -21,10 +21,15 @@ import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
 
 public class MainConfigs {
     public static Screen build(Screen parent){
-        ConfigScreenBuilder screenBuilder = new ConfigScreenBuilder(parent, Component.literal("skin_switcher"));
+        ConfigScreenBuilder screenBuilder = new ConfigScreenBuilder(parent, Component.literal("Skin switcher"));
         screenBuilder.setCategoryTitle(Component.translatable("skin_switcher.config.main"));
         screenBuilder.addPanelWidget(new ButtonBuilder(Component.translatable("skin_switcher.config.main"), (s) -> AlinLib.MINECRAFT.setScreen(MainConfigs.build(parent))));
         screenBuilder.addPanelWidget(new ButtonBuilder(Component.translatable("skin_switcher.config.menu"), (s) -> AlinLib.MINECRAFT.setScreen(MenuConfigs.build(parent))));
+
+        screenBuilder.addWidget(new CategoryBox(Component.translatable("skin_switcher.config.main.command_on_select"))
+                .addValue(new ButtonBooleanBuilder(Component.translatable("skin_switcher.config.main.command_on_select.enabled"), false).setConfig(skin_switcher.config, "COMMAND.ON.SELECT.ENABLED"))
+                .addValue(new EditBoxBuilder(Component.translatable("skin_switcher.config.main.command_on_select.comand")).setValue("/skin url {url}").setConfig(skin_switcher.config, "COMMAND.ON.SELECT.COMAND"))
+        );
 
         screenBuilder.addWidget(new CategoryBox(Component.translatable("skin_switcher.config.main.data"))
                 .addValue(new ButtonBooleanBuilder(Component.translatable("skin_switcher.config.main.data.use_global"), false).setConfig(skin_switcher.pathConfig, "USE_GLOBAL"))

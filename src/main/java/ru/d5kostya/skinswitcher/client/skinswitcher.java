@@ -58,7 +58,7 @@ public class skin_switcher implements ClientModInitializer {
 
     public static HashMap<String, ResourceLocation> cacheResourceLocations = new HashMap<>();
     public static SkinOption currentSkin = null;
-    public static SkinOption safeSkinOption = new SkinOption("Skin", "MHF_Steve", "", PlayerSkin.Model.SLIM, NICKNAME, new File(getPath()+"/skins/safe.temp.json"));
+    public static SkinOption safeSkinOption = new SkinOption("Skin", "", "", PlayerSkin.Model.SLIM, NICKNAME, new File(getPath()+"/skins/safe.temp.json"));
     public static HashMap<String, SkinOption> skinOptions = new HashMap<>();
     public static VanillaLikeStyle vanillaLikeStyle = new VanillaLikeStyle();
 
@@ -98,7 +98,6 @@ public class skin_switcher implements ClientModInitializer {
         });
 
         // Регистрация встроенного ресурспака (появится в меню Resource Packs)
-        // Папка внутри JAR должна быть: resourcepacks/icons_compatibility/...
         ResourceLocation packId = ResourceLocation.parse("skin_switcher:icons_compatibility"); // идентификатор ресурспака
         ModContainer container = FabricLoader.getInstance().getModContainer("skin_switcher").orElse(null);
         if (container == null) {
