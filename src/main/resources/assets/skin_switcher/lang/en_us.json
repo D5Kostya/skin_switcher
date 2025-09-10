@@ -38,7 +38,7 @@
 
   "skin_switcher.edit": "Edit skin",
   "skin_switcher.edit.name": "Preset name",
-  "skin_switcher.edit.url": "URL/File path",
+  "skin_switcher.edit.url": "URL / File path / Player name",
   "skin_switcher.edit.file_select": "Select file",
   "skin_switcher.edit.type": "Type",
   "skin_switcher.edit.type.nickname": "Nickname",

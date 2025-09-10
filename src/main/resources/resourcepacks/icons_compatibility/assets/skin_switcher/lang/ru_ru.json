@@ -14,7 +14,7 @@
 
   "skin_switcher.edit": "\uDB80\uDC16 Редактирование скина",
   "skin_switcher.edit.name": "Назвние пресета",
-  "skin_switcher.edit.url": "\uDB80\uDC30 Ссылка/Путь до файла",
+  "skin_switcher.edit.url": "\uDB80\uDC30 Ссылка / Путь до файла / Ник игрока",
   "skin_switcher.edit.file_select": "Выбрать файл",
   "skin_switcher.edit.type": "\uDB80\uDC12 Тип",
   "skin_switcher.edit.type.nickname": "Никнейм",

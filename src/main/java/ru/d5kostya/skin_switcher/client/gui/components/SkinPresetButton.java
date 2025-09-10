@@ -95,17 +95,15 @@ public class SkinPresetButton extends AbstractButton {
 
     public void onClick(double d, double e) {
         if(e <= getBottom()-20) {
-            if(skin_switcher.currentSkin == skinOption){
-                skin_switcher.logger.log("Skin is already set");
-            } else {
-                try {
-                    skinOption.uploadToMojangAPI();
-                    skin_switcher.currentSkin = skinOption;
-                    skin_switcher.config.setString("SELECTED", key);
-                } catch (Exception ex){
-                    ex.printStackTrace();
-                    new ToastBuilder().setTitle(Component.literal("skin_switcher")).setMessage(Component.literal(ex.getMessage())).setType(ToastBuilder.Type.ERROR).buildAndShow();
-                }
+            skin_switcher.logger.log(key + " !!!");
+            skin_switcher.logger.log("[dev!!] key: " + key + "     currentSkin: " + skin_switcher.currentSkin + "     skinOption: " +  skinOption);
+            skin_switcher.config.setString("SELECTED", key);
+            skin_switcher.currentSkin = skinOption;
+            try {
+                skinOption.uploadToMojangAPI();
+            } catch (Exception ex){
+                ex.printStackTrace();
+                new ToastBuilder().setTitle(Component.literal("skin_switcher")).setMessage(Component.literal(ex.getMessage())).setType(ToastBuilder.Type.ERROR).buildAndShow();
             }
         } else AlinLib.MINECRAFT.setScreen(new EditSkinPreset(AlinLib.MINECRAFT.screen, skinOption, key, skin_switcher.currentSkin == skinOption));
     }

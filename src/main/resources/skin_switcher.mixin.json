@@ -7,7 +7,6 @@
     "AccessorGridLayout",
     "MinecraftMixin",
     "OptionsScreenMixin",
-    "PlayerInfoMixin",
     "gui.PauseScreenMixin",
     "gui.TitleScreenMixin"
   ],

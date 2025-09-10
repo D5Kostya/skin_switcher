@@ -11,7 +11,7 @@ import ru.d5kostya.skinswitcher.client.skin_switcher;
 
 public class MenuConfigs {
     public static Screen build(Screen parent){
-        ConfigScreenBuilder screenBuilder = new ConfigScreenBuilder(parent, Component.literal("skin_switcher"));
+        ConfigScreenBuilder screenBuilder = new ConfigScreenBuilder(parent, Component.literal("Skin switcher"));
         screenBuilder.setCategoryTitle(Component.translatable("skin_switcher.config.menu"));
         screenBuilder.addPanelWidget(new ButtonBuilder(Component.translatable("skin_switcher.config.main"), (s) -> AlinLib.MINECRAFT.setScreen(MainConfigs.build(parent))));
         screenBuilder.addPanelWidget(new ButtonBuilder(Component.translatable("skin_switcher.config.menu"), (s) -> AlinLib.MINECRAFT.setScreen(MenuConfigs.build(parent))));

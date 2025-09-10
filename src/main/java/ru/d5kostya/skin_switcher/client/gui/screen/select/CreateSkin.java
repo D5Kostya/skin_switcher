@@ -43,10 +43,11 @@ public class CreateSkin extends Screen {
 
     public void create(){
         Random r = new Random();
-        int n = r.nextInt();
-        String Hexadecimal = Integer.toHexString(n);
+        String Hexadecimal0 = Integer.toHexString(r.nextInt());
+        String Hexadecimal1 = Integer.toHexString(r.nextInt());
+        String Hexadecimal2 = Integer.toHexString(r.nextInt());
 
-        File file = new File(getPath()+"/skins/"+Hexadecimal.toString()+".json");
+        File file = new File(getPath()+"/skins/"+Hexadecimal0.toString()+Hexadecimal1.toString()+Hexadecimal2.toString()+".json");
         try {
             Files.writeString(file.toPath(), skin_switcher.safeSkinOption.toString(), StandardCharsets.UTF_8);
             SkinOption skinOption = SkinOption.getSkinOption(file);

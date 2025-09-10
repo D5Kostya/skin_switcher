@@ -1,0 +1,28 @@
+package ru.d5kostya.skinswitcher.client.mixin;
+
+import com.mojang.authlib.GameProfile;
+import net.minecraft.client.multiplayer.PlayerInfo;
+import net.minecraft.client.resources.DefaultPlayerSkin;
+import net.minecraft.client.resources.PlayerSkin;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import ru.kelcuprum.alinlib.AlinLib;
+import ru.d5kostya.skinswitcher.client.skin_switcher;
+import java.util.function.Supplier;
+
+Identifier CUSTOM_SKIN = new Identifier("skin_switcher", "textures/entity/custom_skin.png");
+
+@Inject(method = "createSkinLookup", at=@At("RETURN"), cancellable = true)
+private static void createSkinLookup(GameProfile profile, CallbackInfoReturnable<Supplier<PlayerSkin>> cir) {
+    if(AlinLib.MINECRAFT.isSingleplayer()){
+        cir.setReturnValue(() -> new PlayerSkin(
+            CUSTOM_SKIN,            // сама текстура
+            null,                   // плащ
+            null,                   // элитры
+            null,                   // дополнительные текстуры
+            false                   // slim-модель?
+        ));
+    }
+}
